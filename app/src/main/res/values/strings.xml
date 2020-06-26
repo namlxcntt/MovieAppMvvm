@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MvvmArchitectureAppMovie</string>
+    <string name="menu_discover">Discover</string>
+    <string name="menu_genres">Genres</string>
+    <string name="menu_artirts">Artits</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="discover">Discover</string>
+    <string name="most_popular">Most Popular</string>
+    <string name="see_all">See All</string>
+    <string name="topRate">Top Rate</string>
+</resources>
