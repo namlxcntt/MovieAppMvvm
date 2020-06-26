@@ -13,7 +13,6 @@ import com.example.mvvmarchitectureappmovie.R
 import com.example.mvvmarchitectureappmovie.data.api.POSTER_BASE_URL
 import com.example.mvvmarchitectureappmovie.data.model.Movie
 import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
-import com.example.mvvmarchitectureappmovie.ui.single_movie_details.SingleActivity
 import com.example.mvvmarchitectureappmovie.utils.callback.OnItemClickListener
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*

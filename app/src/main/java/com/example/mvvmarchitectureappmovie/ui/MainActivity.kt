@@ -17,7 +17,6 @@ import com.example.mvvmarchitectureappmovie.R
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
-import com.example.mvvmarchitectureappmovie.ui.single_movie_details.SingleActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {

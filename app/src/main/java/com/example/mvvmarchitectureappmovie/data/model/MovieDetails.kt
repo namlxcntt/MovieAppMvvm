@@ -28,5 +28,4 @@ data class MoviesDetails(
     @SerializedName("vote_count")
     val voteCount: Int,
     val genres: List<Genre>
-
 ) : Serializable
