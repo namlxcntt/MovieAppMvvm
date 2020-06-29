@@ -1,12 +1,14 @@
 package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.mvvmarchitectureappmovie.R
 import com.example.mvvmarchitectureappmovie.data.api.POSTER_BASE_URL
@@ -34,6 +36,7 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
         val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
         if (arguments != null) {
             var movieId: Int = requireArguments().getInt("key")
+            val adapterReview  = ReviewMovieAdapter()
             movieRepository =
                 MoviesDetailRepository(
                     apiService
@@ -43,6 +46,12 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
             viewModel = getViewModel(movieId)
             viewModel.movieDetails.observe(requireActivity(), Observer {
                 bindUI(it)
+            })
+            viewModel.movieReviews.observe(requireActivity(), Observer {
+                recycleviewReviews.layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                recycleviewReviews.adapter = adapterReview
+                adapterReview.setList(it.results)
             })
 
         }
@@ -58,7 +67,7 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
     private fun bindUI(it: MoviesDetails) {
         tvTitle.text = it.title.trim()
 //        movie_genres.text = it.tagline.trim()
-        movie_time.text = "Times : " + it.runtime.toString() + " minutes" .trim()
+        movie_time.text = "Times : " + it.runtime.toString() + " minutes".trim()
         ratingBar.setStar((it.voteCount / 20).toFloat())
         movie_vote.text = it.voteCount.toString() + " Votes".trim()
         movie_overview.text = it.overview.trim()
