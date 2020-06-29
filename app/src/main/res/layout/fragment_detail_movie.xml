@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
-
     android:fitsSystemWindows="true">
 
     <androidx.core.widget.NestedScrollView
@@ -88,9 +87,9 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_130sdp"
                     android:layout_marginTop="4dp"
                     android:maxLines="1"
-                    android:layout_marginStart="@dimen/_130sdp"
                     android:text="The Best of Me"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold"
@@ -104,19 +103,21 @@
                     android:layout_marginTop="8dp"
                     android:maxLines="1"
 
-                    android:textSize="@dimen/_14ssp"
                     android:text="Action | Drama | Advanture"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintStart_toStartOf="@+id/tvTitle"
                     app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
                 <com.hedgehog.ratingbar.RatingBar
                     android:id="@+id/ratingbar"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    app:layout_constraintStart_toStartOf="@+id/movie_genres"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_genres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:focusable="true"
+                    app:layout_constraintStart_toStartOf="@+id/movie_genres"
+                    app:layout_constraintTop_toBottomOf="@+id/movie_genres"
                     hedgehog:clickable="false"
                     hedgehog:halfstart="true"
                     hedgehog:starCount="5"
@@ -124,17 +125,16 @@
                     hedgehog:starFill="@drawable/ic_star"
                     hedgehog:starHalf="@drawable/ic_half_star"
                     hedgehog:starImageHeight="@dimen/_25sdp"
-                    hedgehog:starImageWidth="@dimen/_25sdp"
                     hedgehog:starImagePadding="4dp"
-                    android:focusable="true" />
+                    hedgehog:starImageWidth="@dimen/_25sdp" />
 
                 <TextView
                     android:id="@+id/movie_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Language : English"
                     android:maxLines="1"
+                    android:text="Language : English"
 
                     android:textSize="@dimen/_13ssp"
                     app:layout_constraintStart_toStartOf="@+id/ratingbar"
@@ -145,9 +145,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:maxLines="1"
                     android:text="June 22, 2007 (USA)"
                     android:textSize="@dimen/_12ssp"
-                    android:maxLines="1"
 
                     app:layout_constraintStart_toStartOf="@+id/movie_language"
                     app:layout_constraintTop_toBottomOf="@+id/movie_language" />
@@ -157,9 +157,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:paddingStart="@dimen/_8sdp"
-                    android:paddingTop="@dimen/_6sdp"
-                    android:paddingEnd="@dimen/_8sdp"
+                    android:padding="@dimen/_8sdp"
                     android:text="Amanda and Dawson are soul mates who met as teens and were from different backgrounds. But circumstances would force them to part wa..."
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -168,13 +166,25 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10"
                     app:layout_constraintVertical_bias="1.0" />
 
+                <TextView
+                    android:id="@+id/tvReviewMovie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Review Movie"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/movie_overview"
+                    app:layout_constraintTop_toBottomOf="@id/movie_overview" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycleviewReviews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_overview"
+                    app:layout_constraintTop_toBottomOf="@+id/tvReviewMovie"
                     tools:layout_editor_absoluteX="5dp" />
 
                 <TextView
@@ -182,8 +192,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Vote : 1000"
                     android:maxLines="1"
+                    android:text="Vote : 1000"
 
                     android:textSize="@dimen/_12ssp"
                     app:layout_constraintStart_toStartOf="@+id/movie_release_date"
@@ -194,10 +204,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_12sdp"
-                    android:textSize="@dimen/_16ssp"
                     android:layout_marginTop="@dimen/_12sdp"
-                    android:textStyle="bold"
                     android:text="Movie Info"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/movie_vote" />
 
@@ -205,8 +215,8 @@
                     android:id="@+id/movie_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"
                     android:layout_marginEnd="16dp"
+                    android:maxLines="1"
                     android:text="Time"
                     app:layout_constraintBottom_toBottomOf="@+id/movie_vote"
                     app:layout_constraintEnd_toEndOf="parent"

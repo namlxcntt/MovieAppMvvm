@@ -86,9 +86,8 @@ dependencies {
 
     implementation 'kr.pe.burt.android.lib:androidgradientimageview:1.0.0'
 
-    implementation    'com.github.thekhaeng:recycler-margin:1.2.1'
+    implementation 'com.github.thekhaeng:recycler-margin:1.2.1'
 
     implementation 'com.hedgehog.ratingbar:app:1.1.2'
-
-
+    implementation 'com.github.mahimrocky:ShowMoreText:1.0.2'
 }

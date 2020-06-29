@@ -1,7 +1,9 @@
 package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
 import android.content.Context
+import android.graphics.Color
 import android.text.Layout
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,11 +42,19 @@ class ReviewMovieAdapter() : RecyclerView.Adapter<ReviewMovieAdapter.ViewHolder>
         fun onBind(position: Int) {
             val review = list[position]
             tvAuthor.text = review.author.toUpperCase()
-            tvContent.text = review.content
+            tvContent.run {
+                text = review.content
+                addShowMoreText("More")
+                addShowLessText("Less")
+                setShowMoreColor(Color.GRAY)
+                setShowLessTextColor(Color.GRAY)
+                setShowingLine(3)
+            }
             tvId.text = review.id
-            tvUrl.text = review.url
+            tvUrl.apply {
+                text = review.url
+            }
         }
-
     }
 
 }

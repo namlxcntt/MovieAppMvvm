@@ -1,5 +1,6 @@
 package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -36,7 +37,7 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
         val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
         if (arguments != null) {
             var movieId: Int = requireArguments().getInt("key")
-            val adapterReview  = ReviewMovieAdapter()
+            val adapterReview = ReviewMovieAdapter()
             movieRepository =
                 MoviesDetailRepository(
                     apiService
@@ -64,12 +65,12 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
         super.onDestroy()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun bindUI(it: MoviesDetails) {
         tvTitle.text = it.title.trim()
-//        movie_genres.text = it.tagline.trim()
         movie_time.text = "Times : " + it.runtime.toString() + " minutes".trim()
         ratingBar.setStar((it.voteCount / 20).toFloat())
-        movie_vote.text = it.voteCount.toString() + " Votes".trim()
+        movie_vote.text = it.voteCount.toString() + " Votes"
         movie_overview.text = it.overview.trim()
         movie_language.text = "Language : " + it.originalLanguage.toUpperCase().trim()
         val formarCurrency = NumberFormat.getCurrencyInstance(Locale.US)
