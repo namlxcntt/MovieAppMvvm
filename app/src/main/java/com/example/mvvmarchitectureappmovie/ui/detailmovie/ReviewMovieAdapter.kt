@@ -36,9 +36,9 @@ class ReviewMovieAdapter() : RecyclerView.Adapter<ReviewMovieAdapter.ViewHolder>
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         private val tvAuthor = v.tvAuthorReview
-        private val tvId = v.tvIdReview
         private val tvContent = v.tvContentReview
         private val tvUrl = v.tvUrl
+        private val tvNumber = v.tvNumber
         fun onBind(position: Int) {
             val review = list[position]
             tvAuthor.text = review.author.toUpperCase()
@@ -50,10 +50,10 @@ class ReviewMovieAdapter() : RecyclerView.Adapter<ReviewMovieAdapter.ViewHolder>
                 setShowLessTextColor(Color.GRAY)
                 setShowingLine(3)
             }
-            tvId.text = review.id
             tvUrl.apply {
                 text = review.url
             }
+            tvNumber.text = (position + 1).toString()
         }
     }
 

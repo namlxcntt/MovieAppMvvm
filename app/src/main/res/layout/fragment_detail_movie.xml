@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <FrameLayout
                 android:id="@+id/frame_top"
                 android:layout_width="match_parent"
@@ -27,7 +28,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_300sdp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/image2"
                     app:giv_endColor="#FFFFFF"
                     app:giv_endOffset="0.98"
                     app:giv_middleOffset="0.7"
@@ -69,7 +69,6 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_40sdp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/image2"
                 app:layout_constraintBottom_toBottomOf="@+id/frame_top"
                 app:layout_constraintStart_toStartOf="@+id/frame_top"
                 app:layout_constraintTop_toTopOf="@+id/linearLayout" />
@@ -157,7 +156,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:padding="@dimen/_8sdp"
+                    android:padding="@dimen/_12sdp"
                     android:text="Amanda and Dawson are soul mates who met as teens and were from different backgrounds. But circumstances would force them to part wa..."
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -183,6 +182,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvReviewMovie"
                     tools:layout_editor_absoluteX="5dp" />
@@ -206,7 +206,7 @@
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:text="Movie Info"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_17ssp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/movie_vote" />
