@@ -89,6 +89,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
         textViewSeeAllCommingSoon.setOnClickListener(this)
         textviewSeeAllPopular.setOnClickListener(this)
         textViewSeeAllTop.setOnClickListener(this)
+        buttonSearch.setOnClickListener(this)
     }
 
 
@@ -113,6 +114,10 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
             }
             R.id.textViewSeeAllTop -> {
                 navController!!.navigate(R.id.action_first_fragment_to_detailToprateFragment)
+            }
+            R.id.buttonSearch->{
+                navController!!.navigate(R.id.action_first_fragment_to_searchFragment)
+
             }
         }
     }

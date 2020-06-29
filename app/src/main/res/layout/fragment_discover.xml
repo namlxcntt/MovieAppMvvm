@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/buttonSearch"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_12sdp"

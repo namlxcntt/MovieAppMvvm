@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_first_fragment_to_detailMovieFragment"
             app:destination="@id/detailMovieFragment" />
+        <action
+            android:id="@+id/action_first_fragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/second_fragment"
@@ -77,5 +80,10 @@
         android:id="@+id/detailMovieFragment"
         android:name="com.example.mvvmarchitectureappmovie.ui.detailmovie.DetailMovieFragment"
         android:label="DetailMovieFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.mvvmarchitectureappmovie.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 
 </navigation>

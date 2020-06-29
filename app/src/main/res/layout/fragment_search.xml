@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.search.SearchFragment">
+
+    <EditText
+        android:id="@+id/edtMoviesName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Movie Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:imeOptions="actionDone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnClickSearch">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/gif_deadpool"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:text="ewewe"
+            android:visibility="invisible"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="pumped_up.json"
+            app:lottie_loop="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleviewSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_2sdp" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btnClickSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="@+id/edtMoviesName"
+        app:layout_constraintTop_toBottomOf="@+id/edtMoviesName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

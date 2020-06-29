@@ -86,4 +86,7 @@ dependencies {
     implementation 'com.github.thekhaeng:recycler-margin:1.2.1'
     implementation 'com.hedgehog.ratingbar:app:1.1.2'
     implementation 'com.github.mahimrocky:ShowMoreText:1.0.2'
-    implementation 'com.github.d-max:spots-dialog:1.1@aar'}
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+    implementation "com.airbnb.android:lottie:3.4.1"
+
+}
