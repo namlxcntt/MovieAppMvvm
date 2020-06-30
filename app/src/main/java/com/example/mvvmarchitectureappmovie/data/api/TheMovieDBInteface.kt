@@ -1,9 +1,6 @@
 package com.example.mvvmarchitectureappmovie.data.api
 
-import com.example.mvvmarchitectureappmovie.data.model.MovieDetails2
-import com.example.mvvmarchitectureappmovie.data.model.MovieResponse
-import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
-import com.example.mvvmarchitectureappmovie.data.model.Review
+import com.example.mvvmarchitectureappmovie.data.model.*
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -16,6 +13,8 @@ import retrofit2.http.Query
 
 //https://api.themoviedb.org/3/movie/419704/reviews?api_key=15b4991eb81afbfaed1d581ba62c3b8b&language=en-US&page=1
 //https://api.themoviedb.org/3/search/movie?api_key=15b4991eb81afbfaed1d581ba62c3b8b&language=en-US&query=avenger&page=1&include_adult=false
+
+// https://api.themoviedb.org/3/genre/movie/list?api_key=15b4991eb81afbfaed1d581ba62c3b8b&language=en-US
 interface TheMovieDBInteface {
     @GET("movie/{movie_id}")
     fun getMovieDetails(@Path("movie_id") id: Int): Single<MoviesDetails>
@@ -34,4 +33,8 @@ interface TheMovieDBInteface {
 
     @GET("search/movie/")
     fun searchMovie(@Query("query") query: String): Single<MovieResponse>
+
+    @GET("genre/movie/list")
+    fun getGenres(): Single<List<Genre>>
+
 }

@@ -18,15 +18,17 @@ import kotlinx.android.synthetic.main.item_recycleview_layout.view.*
 import kotlinx.android.synthetic.main.item_recycleview_reviews.view.*
 
 class SearchMovieAdapter() : RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>() {
-    private var list: List<Movie> = arrayListOf()
+    private var list = ArrayList<Movie>()
 
-    fun setList(listReview: List<Movie>) {
-        list = listReview
+    fun setList(listReview: ArrayList<Movie>) {
+        removeList()
+        list.addAll(listReview)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_recycleview_layout, parent, false)
+            .inflate(R.layout.item_recycleview_movie2, parent, false)
         return ViewHolder(view)
     }
 
@@ -53,4 +55,8 @@ class SearchMovieAdapter() : RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>
         }
     }
 
+    public fun removeList() {
+        list.clear()
+         notifyDataSetChanged()
+    }
 }

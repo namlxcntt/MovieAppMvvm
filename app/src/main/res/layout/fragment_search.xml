@@ -4,58 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".ui.search.SearchFragment">
 
-    <EditText
-        android:id="@+id/edtMoviesName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Movie Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:imeOptions="actionDone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Search Movie"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnClickSearch">
+        app:layout_constraintTop_toBottomOf="@+id/frameSearch">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/gif_deadpool"
             android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_130sdp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:background="@color/colorWhite"
-            android:text="ewewe"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="pumped_up.json"
+            app:lottie_fileName="deadpool.json"
             app:lottie_loop="true" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleviewSearch"
+            android:layout_marginTop="@dimen/_6sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/_2sdp" />
     </FrameLayout>
 
-    <Button
-        android:id="@+id/btnClickSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="@+id/edtMoviesName"
-        app:layout_constraintTop_toBottomOf="@+id/edtMoviesName" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameSearch"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        <EditText
+            android:id="@+id/edtMoviesName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/bg_edittext_search"
+            android:ems="10"
+            android:hint="@string/movie_name"
+            android:imeOptions="actionDone"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@+id/btnClickSearch"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageView
+            android:id="@+id/btnClickSearch"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_baseline_search_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

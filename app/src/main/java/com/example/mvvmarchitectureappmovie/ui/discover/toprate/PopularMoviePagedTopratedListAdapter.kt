@@ -33,7 +33,7 @@ class PopularMoviePagedTopratedListAdapter(
         val view: View
 
         if (viewType == MOVIE_VIEW_TYPE) {
-            view = layoutInflater.inflate(R.layout.item_recycleview_layout, parent, false)
+            view = layoutInflater.inflate(R.layout.item_recycleview_movie2, parent, false)
             return MovieItemViewHolder(
                 view
             )

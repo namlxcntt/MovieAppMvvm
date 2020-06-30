@@ -3,7 +3,6 @@ package com.example.mvvmarchitectureappmovie.ui.discover
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -50,7 +49,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
         (activity as MainActivity).bottomBar.visibility = View.VISIBLE
 
         navController = Navigation.findNavController(view)
-        initView()
+        setupUi()
         viewModel.moviePagedList.observe(requireActivity(), Observer {
             movieAdapter.submitList(it)
         })
@@ -63,29 +62,33 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
 
     }
 
-    private fun initView() {
-
-        layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        layoutManagerComing =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        layoutManagerTop =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    private fun setupUi() {
         movieRepository = MoviePagedListRepository(apiService)
         movieRepositoryTop = MoviePagedListTopratedRepository(apiService)
         movieRepositoryComing = MovieComingPagedListRepository(apiService)
-        viewModel = getViewModel()
-        movieAdapter = PopularMoviePagedListAdapter(requireContext(),this)
-        movieAdapterTop = PopularMoviePagedTopratedListAdapter(requireContext(),this)
+        movieAdapter = PopularMoviePagedListAdapter(requireContext(), this)
+        movieAdapterTop = PopularMoviePagedTopratedListAdapter(requireContext(), this)
         movieAdapterComing = PopularMovieComingPagedListAdapter(requireContext(), this)
-        recycleviewPopular.layoutManager = layoutManager
-        recycleviewPopular.setHasFixedSize(true)
-        recycleviewPopular.adapter = movieAdapter
-        recycleviewTopRated.layoutManager = layoutManagerTop
-        recycleviewTopRated.setHasFixedSize(true)
-        recycleviewTopRated.adapter = movieAdapterTop
-        recycleviewComingsoon.layoutManager = layoutManagerComing
-        recycleviewComingsoon.setHasFixedSize(true)
-        recycleviewComingsoon.adapter = movieAdapterComing
+        viewModel = getViewModel()
+
+        recycleviewPopular.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            hasFixedSize()
+            adapter = movieAdapter
+        }
+        recycleviewTopRated.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            hasFixedSize()
+            adapter = movieAdapterTop
+        }
+        recycleviewComingsoon.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            hasFixedSize()
+            adapter = movieAdapterComing
+        }
         textViewSeeAllCommingSoon.setOnClickListener(this)
         textviewSeeAllPopular.setOnClickListener(this)
         textViewSeeAllTop.setOnClickListener(this)
@@ -115,7 +118,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
             R.id.textViewSeeAllTop -> {
                 navController!!.navigate(R.id.action_first_fragment_to_detailToprateFragment)
             }
-            R.id.buttonSearch->{
+            R.id.buttonSearch -> {
                 navController!!.navigate(R.id.action_first_fragment_to_searchFragment)
 
             }
@@ -124,8 +127,8 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
 
     override fun onClickListen(id: Int) {
         val bundle = Bundle()
-        bundle.putInt("key",id)
-        navController.navigate(R.id.action_first_fragment_to_detailMovieFragment,bundle)
+        bundle.putInt("key", id)
+        navController.navigate(R.id.action_first_fragment_to_detailMovieFragment, bundle)
     }
 }
 
