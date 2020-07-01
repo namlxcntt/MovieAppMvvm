@@ -14,11 +14,14 @@ import com.example.mvvmarchitectureappmovie.data.api.POSTER_BASE_URL
 import com.example.mvvmarchitectureappmovie.data.model.Movie
 import com.example.mvvmarchitectureappmovie.data.model.ResultReviews
 import com.example.mvvmarchitectureappmovie.data.model.Review
+import com.example.mvvmarchitectureappmovie.utils.callback.OnItemClickListener
 import kotlinx.android.synthetic.main.item_recycleview_layout.view.*
 import kotlinx.android.synthetic.main.item_recycleview_reviews.view.*
 
-class SearchMovieAdapter() : RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>() {
+class SearchMovieAdapter(private val onItemClickListener: OnItemClickListener) :
+    RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>() {
     private var list = ArrayList<Movie>()
+
 
     fun setList(listReview: ArrayList<Movie>) {
         removeList()
@@ -51,12 +54,15 @@ class SearchMovieAdapter() : RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>
                 .load(moviewPosterURL)
                 .into(imageMovie)
             tvMovie.text = movies.title
+            itemView.setOnClickListener {
+                onItemClickListener.onClickListen(movies.id)
+            }
 
         }
     }
 
     public fun removeList() {
         list.clear()
-         notifyDataSetChanged()
+        notifyDataSetChanged()
     }
 }

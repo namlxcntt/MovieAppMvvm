@@ -2,16 +2,8 @@ package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.Window
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -39,7 +31,7 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
     private lateinit var viewModel: SingleMovieViewModel
     private lateinit var movieRepository: MoviesDetailRepository
     private lateinit var ratingBar: RatingBar
-    private lateinit var dialog : AlertDialog
+    private lateinit var dialog: AlertDialog
 
     //    private lateinit var progressBar: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,7 +81,7 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
     @SuppressLint("SetTextI18n")
     private fun bindUI(it: MoviesDetails) {
         tvTitle.text = it.title.trim()
-        movie_time.text = "Times : " + it.runtime.toString() + " minutes".trim()
+        movie_time.text = it.runtime.toString() + " minutes".trim()
         ratingBar.setStar((it.voteCount / 20).toFloat())
         movie_vote.text = it.voteCount.toString() + " Votes"
         movie_overview.text = it.overview.trim()

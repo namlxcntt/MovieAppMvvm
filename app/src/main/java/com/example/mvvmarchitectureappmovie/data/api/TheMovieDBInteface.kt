@@ -35,6 +35,8 @@ interface TheMovieDBInteface {
     fun searchMovie(@Query("query") query: String): Single<MovieResponse>
 
     @GET("genre/movie/list")
-    fun getGenres(): Single<List<Genre>>
+    fun getGenres(): Single<Genres>
+
+
 
 }

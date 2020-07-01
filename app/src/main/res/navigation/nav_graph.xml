@@ -9,28 +9,28 @@
         android:id="@+id/first_fragment"
         android:name="com.example.mvvmarchitectureappmovie.ui.discover.DiscoverFragment"
         android:label="First Fragment"
-        tools:layout="@layout/fragment_discover" >
+        tools:layout="@layout/fragment_discover">
         <action
             android:id="@+id/action_first_fragment_to_detailToprateFragment"
             app:destination="@id/detailToprateFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_first_fragment_to_detailPopularFragment"
             app:destination="@id/detailPopularFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_first_fragment_to_detailsComingSoonFragment"
             app:destination="@id/detailsComingSoonFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_first_fragment_to_detailMovieFragment"
             app:destination="@id/detailMovieFragment" />
@@ -47,13 +47,12 @@
         android:id="@+id/third_fragment"
         android:name="com.example.mvvmarchitectureappmovie.ui.account.AccountFragment"
         android:label="Third Fragment"
-        tools:layout="@layout/fragment_account" >
-    </fragment>
+        tools:layout="@layout/fragment_account"></fragment>
     <fragment
         android:id="@+id/detailsComingSoonFragment"
         android:name="com.example.mvvmarchitectureappmovie.ui.discover.comingsoon.DetailsComingSoonFragment"
         android:label="fragment_details_coming_soon"
-        tools:layout="@layout/fragment_details_coming_soon" >
+        tools:layout="@layout/fragment_details_coming_soon">
         <action
             android:id="@+id/action_detailsComingSoonFragment_to_detailMovieFragment"
             app:destination="@id/detailMovieFragment" />
@@ -62,7 +61,7 @@
         android:id="@+id/detailPopularFragment"
         android:name="com.example.mvvmarchitectureappmovie.ui.discover.popular.DetailPopularFragment"
         android:label="fragment_detail_popular"
-        tools:layout="@layout/fragment_detail_popular" >
+        tools:layout="@layout/fragment_detail_popular">
         <action
             android:id="@+id/action_detailPopularFragment_to_detailMovieFragment"
             app:destination="@id/detailMovieFragment" />
@@ -71,7 +70,7 @@
         android:id="@+id/detailToprateFragment"
         android:name="com.example.mvvmarchitectureappmovie.ui.discover.toprate.DetailToprateFragment"
         android:label="fragment_detail_toprate"
-        tools:layout="@layout/fragment_detail_toprate" >
+        tools:layout="@layout/fragment_detail_toprate">
         <action
             android:id="@+id/action_detailToprateFragment_to_detailMovieFragment"
             app:destination="@id/detailMovieFragment" />
@@ -84,6 +83,14 @@
         android:id="@+id/searchFragment"
         android:name="com.example.mvvmarchitectureappmovie.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
 </navigation>

@@ -13,6 +13,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,22 +25,25 @@ import com.example.mvvmarchitectureappmovie.data.model.Movie
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
 import com.example.mvvmarchitectureappmovie.ui.detailmovie.MoviesDetailRepository
 import com.example.mvvmarchitectureappmovie.ui.detailmovie.SingleMovieViewModel
+import com.example.mvvmarchitectureappmovie.utils.callback.OnItemClickListener
 import com.example.mvvmarchitectureappmovie.utils.snackbar
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
-class SearchFragment : Fragment(R.layout.fragment_search) {
+class SearchFragment : Fragment(R.layout.fragment_search), OnItemClickListener {
     private lateinit var viewModel: SearchMovieViewModel
     private lateinit var searchMovieRepository: SearchMovieRepository
     private lateinit var searchAdapter: SearchMovieAdapter
+    private lateinit var navController: NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
         (activity as MainActivity).bottomBar.visibility = View.GONE
-        searchAdapter = SearchMovieAdapter()
+        searchAdapter = SearchMovieAdapter(this)
         searchMovieRepository = SearchMovieRepository(apiService)
         viewModel = getViewModel()
         setUpUi()
@@ -67,6 +72,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
             })
         }
+
+        buttonBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 
     private fun getViewModel(): SearchMovieViewModel {
@@ -78,6 +87,13 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 ) as T
             }
         })[SearchMovieViewModel::class.java]
+    }
+
+    override fun onClickListen(id: Int) {
+        val bundle = Bundle()
+        bundle.putInt("key", id)
+        navController.navigate(R.id.action_searchFragment_to_detailMovieFragment,bundle)
+
     }
 
 }
