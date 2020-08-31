@@ -18,12 +18,12 @@ import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*
 
 class PopularMovieComingPagedListAdapter(
-    public val context: Context,
-    public val itemclickListener: OnItemClickListener
+    val context: Context,
+    val itemclickListener: OnItemClickListener
 ) :
     PagedListAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
-    val MOVIE_VIEW_TYPE = 1
-    val NETWORK_VIEW_TYPE = 2
+    private val MOVIE_VIEW_TYPE = 1
+    private val NETWORK_VIEW_TYPE = 2
 
     private var networkState: NetworkState? = null
 
@@ -47,7 +47,8 @@ class PopularMovieComingPagedListAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == MOVIE_VIEW_TYPE) {
-            getItem(position)?.let { (holder as MovieItemViewHolder).bind(it, context) }
+            getItem(position)?.let {
+                (holder as MovieItemViewHolder).bind(it, context) }
         } else {
             (holder as NetworkStateItemViewHolder).bind(networkState)
         }

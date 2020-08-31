@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController)
         supportActionBar!!.hide()
 
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

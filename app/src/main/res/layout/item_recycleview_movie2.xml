@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="@dimen/_160sdp"
+    android:layout_height="@dimen/_150sdp"
     android:layout_margin="@dimen/_4sdp"
     app:cardCornerRadius="@dimen/_4sdp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/_110sdp"
-        android:layout_height="@dimen/_160sdp"
+        android:layout_height="@dimen/_150sdp"
         android:background="@color/colorWhite">
 
         <ImageView
             android:id="@+id/cv_iv_movie_poster"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_130sdp"
+            android:layout_height="@dimen/_120sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/image2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,11 +27,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:maxLength="15"
+            android:maxLength="10"
             android:maxLines="1"
             android:text="The Lucky One"
             android:textColor="@color/colorText"
-            android:textSize="@dimen/_13ssp"
+            android:textSize="@dimen/_11ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.35"
             app:layout_constraintStart_toStartOf="parent"

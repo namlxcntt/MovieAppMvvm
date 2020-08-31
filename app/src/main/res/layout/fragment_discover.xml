@@ -177,7 +177,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/recycleviewComingsoon"
+                    android:id="@+id/recycleviewComingSoon"
                     android:layout_marginTop="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

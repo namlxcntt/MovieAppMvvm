@@ -83,7 +83,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
             hasFixedSize()
             adapter = movieAdapterTop
         }
-        recycleviewComingsoon.apply {
+        recycleviewComingSoon.apply {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             hasFixedSize()

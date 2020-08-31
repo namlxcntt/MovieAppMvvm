@@ -4,9 +4,9 @@
     xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:overScrollMode="never"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:overScrollMode="never">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -18,16 +18,29 @@
             android:layout_height="match_parent">
 
 
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:maxLines="2"
+                android:text="The Best of Me"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewvarta"
+                app:layout_constraintTop_toBottomOf="@+id/frame_top" />
+
             <FrameLayout
                 android:id="@+id/frame_top"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_300sdp"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <kr.pe.burt.android.lib.androidgradientimageview.AndroidGradientImageView
                     android:id="@+id/iv_movie_poster"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_300sdp"
+                    android:layout_height="match_parent"
                     android:scaleType="fitXY"
                     app:giv_endColor="#FFFFFF"
                     app:giv_endOffset="0.98"
@@ -72,159 +85,152 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="@+id/frame_top"
                 app:layout_constraintStart_toStartOf="@+id/frame_top"
-                app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/frame_top" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/linearLayout"
+
+            <TextView
+                android:id="@+id/movie_genres"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:maxLines="1"
+                android:text="Action | Drama | Advanture"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+            <com.hedgehog.ratingbar.RatingBar
+                android:id="@+id/ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:focusable="true"
+                app:layout_constraintStart_toStartOf="@+id/movie_genres"
+                app:layout_constraintTop_toBottomOf="@+id/movie_genres"
+                hedgehog:clickable="false"
+                hedgehog:halfstart="true"
+                hedgehog:starCount="5"
+                hedgehog:starEmpty="@drawable/ic_start_white"
+                hedgehog:starFill="@drawable/ic_star"
+                hedgehog:starHalf="@drawable/ic_half_star"
+                hedgehog:starImageHeight="@dimen/_20sdp"
+                hedgehog:starImagePadding="4dp"
+                hedgehog:starImageWidth="@dimen/_20sdp" />
+
+            <TextView
+                android:id="@+id/movie_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:maxLines="1"
+                android:text="Language : English"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintStart_toStartOf="@+id/ratingbar"
+                app:layout_constraintTop_toBottomOf="@+id/ratingbar" />
+
+            <TextView
+                android:id="@+id/movie_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:maxLines="1"
+                android:text="June 22, 2007 (USA)"
+                android:textSize="@dimen/_11sdp"
+
+                app:layout_constraintStart_toStartOf="@+id/movie_language"
+                app:layout_constraintTop_toBottomOf="@+id/movie_language" />
+
+            <TextView
+                android:id="@+id/movie_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="Amanda and Dawson are soul mates who met as teens and were from different backgrounds. But circumstances would force them to part wa..."
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/tvReviewMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Review Movie"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/movie_overview"
+                app:layout_constraintTop_toBottomOf="@id/movie_overview" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleviewReviews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frame_top">
+                app:layout_constraintTop_toBottomOf="@+id/tvReviewMovie"
+                tools:layout_editor_absoluteX="5dp" />
+
+            <TextView
+                android:id="@+id/tv_no_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:text="No Review Movie"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintTop_toBottomOf="@id/tvReviewMovie" />
+
+            <TextView
+                android:id="@+id/movie_vote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:maxLines="1"
+                android:text="Vote : 1000"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintStart_toStartOf="@+id/movie_release_date"
+                app:layout_constraintTop_toBottomOf="@+id/movie_release_date" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Movie Info"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_vote" />
+
+            <TextView
+                android:id="@+id/movie_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:maxLines="1"
+                android:text="Time"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/movie_vote"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/movie_vote" />
 
 
-                <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_130sdp"
-                    android:layout_marginTop="4dp"
-                    android:maxLines="1"
-                    android:text="The Best of Me"
-                    android:textSize="@dimen/_18ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/movie_genres"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:maxLines="1"
-
-                    android:text="Action | Drama | Advanture"
-                    android:textSize="@dimen/_14ssp"
-                    app:layout_constraintStart_toStartOf="@+id/tvTitle"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
-
-                <com.hedgehog.ratingbar.RatingBar
-                    android:id="@+id/ratingbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:focusable="true"
-                    app:layout_constraintStart_toStartOf="@+id/movie_genres"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_genres"
-                    hedgehog:clickable="false"
-                    hedgehog:halfstart="true"
-                    hedgehog:starCount="5"
-                    hedgehog:starEmpty="@drawable/ic_start_white"
-                    hedgehog:starFill="@drawable/ic_star"
-                    hedgehog:starHalf="@drawable/ic_half_star"
-                    hedgehog:starImageHeight="@dimen/_25sdp"
-                    hedgehog:starImagePadding="4dp"
-                    hedgehog:starImageWidth="@dimen/_25sdp" />
-
-                <TextView
-                    android:id="@+id/movie_language"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:maxLines="1"
-                    android:text="Language : English"
-
-                    android:textSize="@dimen/_11sdp"
-                    app:layout_constraintStart_toStartOf="@+id/ratingbar"
-                    app:layout_constraintTop_toBottomOf="@+id/ratingbar" />
-
-                <TextView
-                    android:id="@+id/movie_release_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:maxLines="1"
-                    android:text="June 22, 2007 (USA)"
-                    android:textSize="@dimen/_11sdp"
-
-                    app:layout_constraintStart_toStartOf="@+id/movie_language"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_language" />
-
-                <TextView
-                    android:id="@+id/movie_overview"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:padding="@dimen/_12sdp"
-                    android:text="Amanda and Dawson are soul mates who met as teens and were from different backgrounds. But circumstances would force them to part wa..."
-                    android:textSize="@dimen/_14ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <TextView
-                    android:id="@+id/tvReviewMovie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:text="Review Movie"
-                    android:textSize="@dimen/_16ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/movie_overview"
-                    app:layout_constraintTop_toBottomOf="@id/movie_overview" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycleviewReviews"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvReviewMovie"
-                    tools:layout_editor_absoluteX="5dp" />
-
-                <TextView
-                    android:id="@+id/movie_vote"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:maxLines="1"
-                    android:text="Vote : 1000"
-                    android:textSize="@dimen/_11sdp"
-                    app:layout_constraintStart_toStartOf="@+id/movie_release_date"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_release_date" />
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:text="Movie Info"
-                    android:textSize="@dimen/_17ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_vote" />
-
-                <TextView
-                    android:id="@+id/movie_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:maxLines="1"
-                    android:textSize="@dimen/_11sdp"
-                    android:text="Time"
-                    app:layout_constraintBottom_toBottomOf="@+id/movie_vote"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/movie_vote" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

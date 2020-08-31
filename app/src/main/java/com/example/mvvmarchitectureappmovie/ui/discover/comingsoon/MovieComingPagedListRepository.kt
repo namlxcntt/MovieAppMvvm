@@ -16,8 +16,8 @@ import io.reactivex.disposables.CompositeDisposable
 
 class MovieComingPagedListRepository (private val apiService : TheMovieDBInteface) {
 
-    lateinit var moviePagedList: LiveData<PagedList<Movie>>
-    lateinit var moviesDataSourceFactory: MovieComingDataSoureFactory
+    private lateinit var moviePagedList: LiveData<PagedList<Movie>>
+    private lateinit var moviesDataSourceFactory: MovieComingDataSoureFactory
     fun fetchLiveMoviePagedList (compositeDisposable: CompositeDisposable) : LiveData<PagedList<Movie>> {
         moviesDataSourceFactory =
             MovieComingDataSoureFactory(

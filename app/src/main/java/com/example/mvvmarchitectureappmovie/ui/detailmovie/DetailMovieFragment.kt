@@ -3,6 +3,7 @@ package com.example.mvvmarchitectureappmovie.ui.detailmovie
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -36,10 +37,15 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
     //    private lateinit var progressBar: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val handler = Handler()
         dialog = SpotsDialog.Builder()
             .setContext(requireContext())
             .build()
         dialog.show()
+        handler.postDelayed(Runnable {
+            dialog.dismiss()
+        },2000)
+
 
     }
 
@@ -59,13 +65,20 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
             viewModel = getViewModel(movieId)
             viewModel.movieDetails.observe(requireActivity(), Observer {
                 bindUI(it)
-                dialog.dismiss()
             })
             viewModel.movieReviews.observe(requireActivity(), Observer {
-                recycleviewReviews.layoutManager =
-                    LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                recycleviewReviews.adapter = adapterReview
-                adapterReview.setList(it.results)
+                if (it.results.isNotEmpty()){
+                    tv_no_review.visibility = View.GONE
+                    recycleviewReviews.layoutManager =
+                        LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                    recycleviewReviews.adapter = adapterReview
+                    adapterReview.setList(it.results)
+                }
+                else{
+                    tv_no_review.visibility = View.VISIBLE
+                    recycleviewReviews.visibility = View.GONE
+                }
+
             })
 
         }
@@ -90,11 +103,14 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
         val moviePosterURl = POSTER_BASE_URL + it.posterPath
         val genres: List<Genre> = it.genres
         val stringGenres = StringBuilder()
-        stringGenres.append(genres[0].name)
-        for (i in 1..(genres.size - 1)) {
-            stringGenres.append(" | ${genres[i].name}")
+        if(genres.isNotEmpty()){
+            stringGenres.append(genres[0].name)
+            for (i in 1 until genres.size) {
+                stringGenres.append(" | ${genres[i].name}")
+            }
+            movie_genres.text = stringGenres.trim()
         }
-        movie_genres.text = stringGenres.trim()
+
 
         Glide.with(this)
             .load(moviePosterURl)

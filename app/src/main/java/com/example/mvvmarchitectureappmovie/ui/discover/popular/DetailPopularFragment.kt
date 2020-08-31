@@ -17,8 +17,6 @@ import com.example.mvvmarchitectureappmovie.utils.callback.OnItemClickListener
 import com.thekhaeng.recyclerviewmargin.LayoutMarginDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_detail_popular.*
-import kotlinx.android.synthetic.main.fragment_discover.*
-import kotlinx.android.synthetic.main.fragment_discover.recycleviewComingsoon
 
 class DetailPopularFragment : Fragment(R.layout.fragment_detail_popular) , OnItemClickListener {
 
@@ -33,9 +31,9 @@ class DetailPopularFragment : Fragment(R.layout.fragment_detail_popular) , OnIte
         movieRepository = MoviePagedListRepository(apiService)
         val gridLayoutManager = GridLayoutManager(requireContext(), 3)
         (activity as MainActivity).bottomBar.visibility = View.GONE
-        recycleviewComingsoon.addItemDecoration(LayoutMarginDecoration(3, 12))
-        recycleviewComingsoon.layoutManager = gridLayoutManager
-        recycleviewComingsoon.adapter = movieAdapterComing
+        recycleviewDetailPopular.addItemDecoration(LayoutMarginDecoration(3, 12))
+        recycleviewDetailPopular.layoutManager = gridLayoutManager
+        recycleviewDetailPopular.adapter = movieAdapterComing
         viewModel = getViewModel()
         viewModel.moviePagedList.observe(requireActivity(), Observer {
             movieAdapterComing.submitList(it)
