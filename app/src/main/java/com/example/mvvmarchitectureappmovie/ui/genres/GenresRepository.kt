@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
 import com.example.mvvmarchitectureappmovie.data.model.Genres
 import com.example.mvvmarchitectureappmovie.data.model.GenresMovie
-import com.example.mvvmarchitectureappmovie.data.repository.GenresDataSource
+import com.example.mvvmarchitectureappmovie.data.datasource.GenresDataSource
 import io.reactivex.disposables.CompositeDisposable
 
 class GenresRepository(private val apiService: TheMovieDBInteface) {

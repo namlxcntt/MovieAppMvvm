@@ -83,6 +83,4 @@ dependencies {
     implementation 'com.github.d-max:spots-dialog:1.1@aar'
     implementation "com.airbnb.android:lottie:3.4.1"
 
-    implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
-
 }

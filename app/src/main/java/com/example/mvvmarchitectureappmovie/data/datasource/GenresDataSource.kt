@@ -1,4 +1,4 @@
-package com.example.mvvmarchitectureappmovie.data.repository
+package com.example.mvvmarchitectureappmovie.data.datasource
 
 import android.util.Log
 import androidx.lifecycle.LiveData

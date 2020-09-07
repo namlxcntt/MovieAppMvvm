@@ -1,4 +1,4 @@
-package com.example.mvvmarchitectureappmovie.data.repository.moviecomming
+package com.example.mvvmarchitectureappmovie.data.datasource.moviecomming
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.paging.PageKeyedDataSource
 import com.example.mvvmarchitectureappmovie.data.api.FIRST_VAL
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
 import com.example.mvvmarchitectureappmovie.data.model.Movie
-import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
+import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
@@ -31,8 +31,10 @@ class MovieComingDataSource(
                 .subscribeOn(Schedulers.io())
                 .subscribe(
                     {
-                        callback.onResult(it.movieList
-                            , null, page + 1)
+                        callback.onResult(
+                            it.movieList
+                            , null, page + 1
+                        )
                         networkState.postValue(NetworkState.LOADED)
                     },
                     {

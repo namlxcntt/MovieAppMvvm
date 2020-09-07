@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.example.mvvmarchitectureappmovie.data.model.Movie
-import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
+import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import com.example.mvvmarchitectureappmovie.ui.discover.comingsoon.MovieComingPagedListRepository
 import com.example.mvvmarchitectureappmovie.ui.discover.popular.MoviePagedListRepository
 import com.example.mvvmarchitectureappmovie.ui.discover.toprate.MoviePagedListTopratedRepository

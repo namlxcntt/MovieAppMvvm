@@ -21,7 +21,7 @@
     <me.ibrahimsn.lib.SmoothBottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="@dimen/_35sdp"
         app:backgroundColor="#707070"
         app:textSize="@dimen/_10ssp"
         app:iconSize="@dimen/_16sdp"

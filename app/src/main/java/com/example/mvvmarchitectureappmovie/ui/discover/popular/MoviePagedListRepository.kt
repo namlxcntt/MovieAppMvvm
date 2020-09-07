@@ -7,9 +7,9 @@ import androidx.paging.PagedList
 import com.example.mvvmarchitectureappmovie.data.api.POST_PER_PAGE
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
 import com.example.mvvmarchitectureappmovie.data.model.Movie
-import com.example.mvvmarchitectureappmovie.data.repository.moviedatasource.MovieDataSource
-import com.example.mvvmarchitectureappmovie.data.repository.moviedatasource.MovieDataSoureFactory
-import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
+import com.example.mvvmarchitectureappmovie.data.datasource.moviedatasource.MovieDataSource
+import com.example.mvvmarchitectureappmovie.data.datasource.moviedatasource.MovieDataSoureFactory
+import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 
 class MoviePagedListRepository (private val apiService : TheMovieDBInteface) {

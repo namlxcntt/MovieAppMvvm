@@ -1,22 +1,21 @@
-package com.example.mvvmarchitectureappmovie.data.repository.moviedatasource
+package com.example.mvvmarchitectureappmovie.data.datasource.moviecomming
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
 import com.example.mvvmarchitectureappmovie.data.model.Movie
-import com.example.mvvmarchitectureappmovie.data.repository.moviedatasource.MovieDataSource
 import io.reactivex.disposables.CompositeDisposable
 
-class MovieDataSoureFactory(
+class MovieComingDataSoureFactory(
     private val apiService: TheMovieDBInteface,
     private val compositeDisposable: CompositeDisposable
 ) : DataSource.Factory<Int, Movie>() {
 
-    val moviesLiveDataSource = MutableLiveData<MovieDataSource>()
+    val moviesLiveDataSource = MutableLiveData<MovieComingDataSource>()
 
     override fun create(): DataSource<Int, Movie> {
         val movieDataSource =
-            MovieDataSource(
+            MovieComingDataSource(
                 apiService,
                 compositeDisposable
             )

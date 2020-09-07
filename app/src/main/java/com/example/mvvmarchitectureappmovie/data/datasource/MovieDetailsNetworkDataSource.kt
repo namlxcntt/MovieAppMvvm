@@ -1,17 +1,16 @@
-package com.example.mvvmarchitectureappmovie.data.repository
+package com.example.mvvmarchitectureappmovie.data.datasource
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
-import com.example.mvvmarchitectureappmovie.data.model.MovieDetails2
 import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
+import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import com.example.mvvmarchitectureappmovie.data.model.Review
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlin.math.log
 
-class MovieDetailsbNetworkDataSource(
+class MovieDetailsNetworkDataSource(
     private val apiService: TheMovieDBInteface,
     private val compositeDisposable: CompositeDisposable
 ) {
@@ -38,6 +37,7 @@ class MovieDetailsbNetworkDataSource(
                         /// Subcrie  first . success call api . next to throwable error
                         .subscribe({
                             _downloadMovieDetailsResponse.postValue(it)
+                            Log.d("xxxx",it.toString())
                             _netWorkState.postValue(NetworkState.LOADED)
 
                         }, {
