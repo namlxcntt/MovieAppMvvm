@@ -3,7 +3,6 @@ package com.example.mvvmarchitectureappmovie.ui.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
 import com.example.mvvmarchitectureappmovie.data.model.Movie
 import com.example.mvvmarchitectureappmovie.data.model.MovieResponse
 import com.example.mvvmarchitectureappmovie.ui.detailmovie.MoviesDetailRepository

@@ -15,7 +15,7 @@ import retrofit2.http.Query
 
 // https://api.themoviedb.org/3/genre/movie/list?api_key=15b4991eb81afbfaed1d581ba62c3b8b&language=en-US
 //Genres https://api.themoviedb.org/3/movie/1771/similar?api_key=15b4991eb81afbfaed1d581ba62c3b8b&language=en-US&page=1
-interface TheMovieDBInteface {
+interface TheMovieDBInterface {
 
     @GET("movie/{movie_id}")
     fun getMovieDetails(@Path("movie_id") id: Int): Single<MoviesDetails>

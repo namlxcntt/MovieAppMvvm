@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
 import com.example.mvvmarchitectureappmovie.ui.discover.DiscoverMovieViewModel
@@ -23,7 +23,7 @@ class DetailPopularFragment : Fragment(R.layout.fragment_detail_popular) , OnIte
     private lateinit var movieAdapterComing: PopularMoviePagedListAdapter
     private lateinit var movieRepository: MoviePagedListRepository
     private lateinit var viewModel: DiscoverMovieViewModel
-    private val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+    private val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

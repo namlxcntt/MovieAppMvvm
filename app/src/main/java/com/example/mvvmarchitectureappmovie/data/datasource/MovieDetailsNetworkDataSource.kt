@@ -3,7 +3,7 @@ package com.example.mvvmarchitectureappmovie.data.datasource
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
 import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import com.example.mvvmarchitectureappmovie.data.model.Review
@@ -11,7 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class MovieDetailsNetworkDataSource(
-    private val apiService: TheMovieDBInteface,
+    private val apiService: TheMovieDBInterface,
     private val compositeDisposable: CompositeDisposable
 ) {
 

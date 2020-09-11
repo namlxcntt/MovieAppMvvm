@@ -5,14 +5,14 @@ import androidx.lifecycle.Transformations
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.example.mvvmarchitectureappmovie.data.api.POST_PER_PAGE
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.model.Movie
 import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import com.example.mvvmarchitectureappmovie.data.datasource.movietoprated.MovieDataSourceTopRated
 import com.example.mvvmarchitectureappmovie.data.datasource.movietoprated.MovieDataSoureTopratedFactory
 import io.reactivex.disposables.CompositeDisposable
 
-class MoviePagedListTopratedRepository (private val apiService : TheMovieDBInteface) {
+class MoviePagedListTopratedRepository (private val apiService : TheMovieDBInterface) {
 
     lateinit var moviePagedList: LiveData<PagedList<Movie>>
     lateinit var moviesDataSourceFactory: MovieDataSoureTopratedFactory

@@ -12,7 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
 import com.example.mvvmarchitectureappmovie.ui.discover.DiscoverMovieViewModel
@@ -27,7 +27,7 @@ class DetailsComingSoonFragment : Fragment(R.layout.fragment_details_coming_soon
     private lateinit var movieAdapterComing: PopularMovieComingPagedListAdapter
     private lateinit var movieRepositoryComing: MovieComingPagedListRepository
     private lateinit var viewModel: DiscoverMovieViewModel
-    private val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+    private val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
     private lateinit var navController: NavController
     private lateinit var toolbar : Toolbar
 

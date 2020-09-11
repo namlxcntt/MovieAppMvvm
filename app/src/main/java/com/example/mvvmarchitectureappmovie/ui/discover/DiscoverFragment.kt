@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
 import com.example.mvvmarchitectureappmovie.ui.discover.comingsoon.MovieComingPagedListRepository
@@ -39,7 +39,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
 
 
     lateinit var movieRepositoryComing: MovieComingPagedListRepository
-    private val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+    private val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

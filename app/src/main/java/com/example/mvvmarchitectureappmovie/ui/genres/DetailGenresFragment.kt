@@ -1,11 +1,8 @@
 package com.example.mvvmarchitectureappmovie.ui.genres
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -13,9 +10,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.data.model.MoviesWithGenres
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
@@ -23,7 +19,6 @@ import com.example.mvvmarchitectureappmovie.ui.genres.adapter.GenresDetailAdapte
 import com.thekhaeng.recyclerviewmargin.LayoutMarginDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_detail_genres.*
-import kotlinx.android.synthetic.main.fragment_details_coming_soon.*
 
 
 class DetailGenresFragment : Fragment(R.layout.fragment_detail_genres),
@@ -36,7 +31,7 @@ class DetailGenresFragment : Fragment(R.layout.fragment_detail_genres),
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
-        val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+        val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
         genresRepository = GenresRepository(apiService)
         viewModel = getViewModel()
         if (arguments != null) {

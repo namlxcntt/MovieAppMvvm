@@ -1,14 +1,14 @@
 package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
 import androidx.lifecycle.LiveData
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
 import com.example.mvvmarchitectureappmovie.data.model.Review
 import com.example.mvvmarchitectureappmovie.data.datasource.MovieDetailsNetworkDataSource
 import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 
-class MoviesDetailRepository(private val apiService: TheMovieDBInteface) {
+class MoviesDetailRepository(private val apiService: TheMovieDBInterface) {
     lateinit var movieDetailsNetworkDataSource: MovieDetailsNetworkDataSource
 
     fun fetchSingleMovieDetails(
