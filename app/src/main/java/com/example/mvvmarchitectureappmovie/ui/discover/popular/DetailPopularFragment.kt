@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
 import com.example.mvvmarchitectureappmovie.ui.discover.DiscoverMovieViewModel
@@ -25,12 +25,13 @@ class DetailPopularFragment : Fragment(R.layout.fragment_detail_popular) , OnIte
     private lateinit var movieAdapterComing: PopularMoviePagedListAdapter
     private lateinit var movieRepository: MoviePagedListRepository
     private lateinit var viewModel: DiscoverMovieViewModel
-    private val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+    private val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
     private lateinit var navController: NavController
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         movieAdapterComing = PopularMoviePagedListAdapter(requireContext(), this)
         movieRepository = MoviePagedListRepository(apiService)
         val gridLayoutManager = GridLayoutManager(requireContext(), 3)
@@ -60,7 +61,9 @@ class DetailPopularFragment : Fragment(R.layout.fragment_detail_popular) , OnIte
     }
 
     override fun onClickListen(id: Int) {
-
+        val bundle = Bundle()
+        bundle.putInt("key",id)
+        navController.navigate(R.id.action_detailPopularFragment_to_detailMovieFragment,bundle)
     }
 
 }

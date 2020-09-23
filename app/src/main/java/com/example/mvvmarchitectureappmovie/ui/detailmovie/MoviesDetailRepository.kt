@@ -1,22 +1,24 @@
 package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
+import android.net.Network
 import androidx.lifecycle.LiveData
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
+import com.example.mvvmarchitectureappmovie.data.datasource.MovieDetailsNetworkDataSource
 import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
+import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import com.example.mvvmarchitectureappmovie.data.model.Review
-import com.example.mvvmarchitectureappmovie.data.repository.MovieDetailsbNetworkDataSource
-import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
+
 import io.reactivex.disposables.CompositeDisposable
 
-class MoviesDetailRepository(private val apiService: TheMovieDBInteface) {
-    lateinit var movieDetailsNetworkDataSource: MovieDetailsbNetworkDataSource
+class MoviesDetailRepository(private val apiService: TheMovieDBInterface) {
+    lateinit var movieDetailsNetworkDataSource: MovieDetailsNetworkDataSource
 
     fun fetchSingleMovieDetails(
         compositeDisposable: CompositeDisposable,
         movieId: Int
     ): LiveData<MoviesDetails> {
         movieDetailsNetworkDataSource =
-            MovieDetailsbNetworkDataSource(apiService, compositeDisposable)
+            MovieDetailsNetworkDataSource(apiService, compositeDisposable)
         movieDetailsNetworkDataSource.fetchMovieDetails(movieId)
         return movieDetailsNetworkDataSource.downloadMovieDetails
     }
