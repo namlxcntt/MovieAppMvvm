@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.mvvmarchitectureappmovie.R
 import com.example.mvvmarchitectureappmovie.data.api.POSTER_BASE_URL
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.data.model.Genre
 import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
@@ -52,7 +52,7 @@ class DetailMovieFragment : Fragment(R.layout.fragment_detail_movie) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+        val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
         if (arguments != null) {
             var movieId: Int = requireArguments().getInt("key")
             val adapterReview = ReviewMovieAdapter()

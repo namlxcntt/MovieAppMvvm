@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,6 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.example.mvvmarchitectureappmovie.ui.customview.CustomTextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -41,10 +41,10 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        android:overScrollMode="never"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="1.0">
@@ -87,9 +87,9 @@
                     app:layout_constraintTop_toTopOf="@+id/customTextViewMostPoPular" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleviewPopular"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/recycleviewPopular"
                     android:layout_marginTop="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +107,8 @@
                 app:layout_constraintTop_toBottomOf="@id/constrainMostPouplar"
                 tools:layout_editor_absoluteX="0dp">
 
-                <com.example.mvvmarchitectureappmovie.ui.customview.CustomTextView                    android:id="@+id/customTextViewRecent"
+                <com.example.mvvmarchitectureappmovie.ui.customview.CustomTextView
+                    android:id="@+id/customTextViewRecent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
@@ -131,9 +132,9 @@
                     app:layout_constraintTop_toTopOf="@+id/customTextViewRecent" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleviewTopRated"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/recycleviewTopRated"
                     android:layout_marginTop="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +151,8 @@
                 app:layout_constraintTop_toBottomOf="@id/constrainRecent">
 
 
-                <com.example.mvvmarchitectureappmovie.ui.customview.CustomTextView                    android:id="@+id/customTextViewCommingSoon"
+                <com.example.mvvmarchitectureappmovie.ui.customview.CustomTextView
+                    android:id="@+id/customTextViewCommingSoon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
@@ -161,13 +163,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.example.mvvmarchitectureappmovie.ui.customview.CustomTextView                    android:id="@+id/textViewSeeAllCommingSoon"
+                <com.example.mvvmarchitectureappmovie.ui.customview.CustomTextView
+                    android:id="@+id/textViewSeeAllCommingSoon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:onClick="onClickSeeAllComing"
                     android:drawableEnd="@drawable/ic_arrow"
                     android:drawablePadding="@dimen/_8sdp"
+                    android:onClick="onClickSeeAllComing"
                     android:text="@string/see_all"
                     android:textColor="@color/colorTextBlue"
                     android:textSize="@dimen/_13ssp"
@@ -175,9 +178,9 @@
                     app:layout_constraintTop_toTopOf="@+id/customTextViewCommingSoon" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleviewComingSoon"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/recycleviewComingSoon"
                     android:layout_marginTop="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

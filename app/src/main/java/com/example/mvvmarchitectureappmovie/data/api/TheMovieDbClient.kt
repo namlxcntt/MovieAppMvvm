@@ -5,7 +5,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.URL
 import java.util.concurrent.TimeUnit
 
 const val API_KEY = "15b4991eb81afbfaed1d581ba62c3b8b"
@@ -16,7 +15,7 @@ const val FIRST_VAL = 1
 const val POST_PER_PAGE = 20
 
 object TheMovieDbClient {
-    fun getClient(): TheMovieDBInteface {
+    fun getClient(): TheMovieDBInterface {
         val requestInterceptor = Interceptor { chain ->
             val url = chain.request()
                 .url()
@@ -40,6 +39,6 @@ object TheMovieDbClient {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(TheMovieDBInteface::class.java)
+            .create(TheMovieDBInterface::class.java)
     }
 }

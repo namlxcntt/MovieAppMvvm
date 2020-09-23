@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.data.model.Genre
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
@@ -19,9 +19,7 @@ import com.example.mvvmarchitectureappmovie.ui.genres.adapter.GenresAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_genres.*
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class GenresFragment : Fragment(R.layout.fragment_genres), GenresAdapter.OnItemClickGenres {
     private lateinit var genresRepository: GenresRepository
     private lateinit var viewModel: GenresViewModel
@@ -35,7 +33,7 @@ class GenresFragment : Fragment(R.layout.fragment_genres), GenresAdapter.OnItemC
             GenresAdapter(
                 this
             )
-        val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+        val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
         genresRepository = GenresRepository(apiService)
         viewModel = getViewModel()
         viewModel.fetchGenres().observe(requireActivity(), Observer {

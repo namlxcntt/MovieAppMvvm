@@ -1,14 +1,13 @@
-package com.example.mvvmarchitectureappmovie.data.repository.movietoprated
+package com.example.mvvmarchitectureappmovie.data.datasource.movietoprated
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.model.Movie
-import com.example.mvvmarchitectureappmovie.data.repository.moviedatasource.MovieDataSource
 import io.reactivex.disposables.CompositeDisposable
 
 class MovieDataSoureTopratedFactory(
-    private val apiService: TheMovieDBInteface,
+    private val apiService: TheMovieDBInterface,
     private val compositeDisposable: CompositeDisposable
 ) : DataSource.Factory<Int, Movie>() {
 

@@ -1,17 +1,17 @@
-package com.example.mvvmarchitectureappmovie.data.repository.movietoprated
+package com.example.mvvmarchitectureappmovie.data.datasource.movietoprated
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.example.mvvmarchitectureappmovie.data.api.FIRST_VAL
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.model.Movie
-import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
+import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class MovieDataSourceTopRated(
-    private val apiService: TheMovieDBInteface,
+    private val apiService: TheMovieDBInterface,
     private val compositeDisposable: CompositeDisposable
 ) : PageKeyedDataSource<Int, Movie>() {
 

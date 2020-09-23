@@ -1,9 +1,9 @@
-package com.example.mvvmarchitectureappmovie.data.repository
+package com.example.mvvmarchitectureappmovie.data.datasource
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.model.Genres
 import com.example.mvvmarchitectureappmovie.data.model.GenresMovie
 import io.reactivex.disposables.CompositeDisposable
@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 import java.lang.Exception
 
 class GenresDataSource(
-    private val apiService: TheMovieDBInteface,
+    private val apiService: TheMovieDBInterface,
     private val compositeDisposable: CompositeDisposable
 ) {
     private val _genresMovie = MutableLiveData<Genres>()

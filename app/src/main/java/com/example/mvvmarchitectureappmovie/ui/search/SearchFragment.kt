@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.data.model.Movie
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
@@ -41,7 +41,7 @@ class SearchFragment : Fragment(R.layout.fragment_search), OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+        val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
         (activity as MainActivity).bottomBar.visibility = View.GONE
         searchAdapter = SearchMovieAdapter(this)
         searchMovieRepository = SearchMovieRepository(apiService)
@@ -58,7 +58,6 @@ class SearchFragment : Fragment(R.layout.fragment_search), OnItemClickListener {
             visibility = View.GONE
         }
         btnClickSearch.setOnClickListener {
-            viewModel.setQuery(edtMoviesName.text.toString())
             viewModel.setQuery(edtMoviesName.text.toString()).observe(requireActivity(), Observer {
                 if (it.movieList.isNotEmpty()) {
                     searchAdapter.setList(it.movieList as ArrayList<Movie>)

@@ -1,7 +1,6 @@
 package com.example.mvvmarchitectureappmovie.ui.discover.popular
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.mvvmarchitectureappmovie.R
 import com.example.mvvmarchitectureappmovie.data.api.POSTER_BASE_URL
 import com.example.mvvmarchitectureappmovie.data.model.Movie
-import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
+import com.example.mvvmarchitectureappmovie.data.model.NetworkState
 import com.example.mvvmarchitectureappmovie.utils.callback.OnItemClickListener
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*

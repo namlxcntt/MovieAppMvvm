@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvvmarchitectureappmovie.R
-import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
+import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInterface
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDbClient
 import com.example.mvvmarchitectureappmovie.ui.MainActivity
 import com.example.mvvmarchitectureappmovie.ui.discover.comingsoon.MovieComingPagedListRepository
@@ -30,9 +30,6 @@ import kotlinx.android.synthetic.main.fragment_discover.*
 class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListener,
     OnItemClickListener {
     private lateinit var viewModel: DiscoverMovieViewModel
-    private lateinit var layoutManager: LinearLayoutManager
-    private lateinit var layoutManagerTop: LinearLayoutManager
-    private lateinit var layoutManagerComing: LinearLayoutManager
     private lateinit var movieAdapter: PopularMoviePagedListAdapter
     private lateinit var movieAdapterTop: PopularMoviePagedTopratedListAdapter
     private lateinit var movieAdapterComing: PopularMovieComingPagedListAdapter
@@ -42,7 +39,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
 
 
     lateinit var movieRepositoryComing: MovieComingPagedListRepository
-    private val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+    private val apiService: TheMovieDBInterface = TheMovieDbClient.getClient()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -110,16 +107,16 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover), View.OnClickListe
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.textViewSeeAllCommingSoon -> {
-                navController!!.navigate(R.id.action_first_fragment_to_detailsComingSoonFragment)
+                navController.navigate(R.id.action_first_fragment_to_detailsComingSoonFragment)
             }
             R.id.textviewSeeAllPopular -> {
-                navController!!.navigate(R.id.action_first_fragment_to_detailPopularFragment)
+                navController.navigate(R.id.action_first_fragment_to_detailPopularFragment)
             }
             R.id.textViewSeeAllTop -> {
-                navController!!.navigate(R.id.action_first_fragment_to_detailToprateFragment)
+                navController.navigate(R.id.action_first_fragment_to_detailToprateFragment)
             }
             R.id.buttonSearch -> {
-                navController!!.navigate(R.id.action_first_fragment_to_searchFragment)
+                navController.navigate(R.id.action_first_fragment_to_searchFragment)
 
             }
         }

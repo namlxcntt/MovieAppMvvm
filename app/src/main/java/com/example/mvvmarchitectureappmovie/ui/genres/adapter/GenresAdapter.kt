@@ -25,7 +25,7 @@ class GenresAdapter(private val onItemClickGenres: OnItemClickGenres) :
         return list.size
     }
 
-    public fun setList(list: ArrayList<Genre>) {
+     fun setList(list: ArrayList<Genre>) {
         this.list.clear()
         this.list = list
         notifyDataSetChanged()

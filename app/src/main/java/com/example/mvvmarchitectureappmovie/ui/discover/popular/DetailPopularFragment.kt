@@ -31,7 +31,6 @@ class DetailPopularFragment : Fragment(R.layout.fragment_detail_popular) , OnIte
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
         movieAdapterComing = PopularMoviePagedListAdapter(requireContext(), this)
         movieRepository = MoviePagedListRepository(apiService)
         val gridLayoutManager = GridLayoutManager(requireContext(), 3)
@@ -61,9 +60,7 @@ class DetailPopularFragment : Fragment(R.layout.fragment_detail_popular) , OnIte
     }
 
     override fun onClickListen(id: Int) {
-        val bundle = Bundle()
-        bundle.putInt("key", id)
-        navController.navigate(R.id.action_detailPopularFragment_to_detailMovieFragment, bundle)
+
     }
 
 }
