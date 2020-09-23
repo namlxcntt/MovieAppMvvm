@@ -2,7 +2,6 @@ package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
 import androidx.lifecycle.LiveData
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
-import com.example.mvvmarchitectureappmovie.data.model.MovieDetails2
 import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
 import com.example.mvvmarchitectureappmovie.data.model.Review
 import com.example.mvvmarchitectureappmovie.data.repository.MovieDetailsbNetworkDataSource
@@ -22,7 +21,7 @@ class MoviesDetailRepository(private val apiService: TheMovieDBInteface) {
         return movieDetailsNetworkDataSource.downloadMovieDetails
     }
 
-    fun fetchReviewMovies(compositeDisposable: CompositeDisposable, movieId: Int) : LiveData<Review> {
+    fun fetchReviewMovies(movieId: Int) : LiveData<Review> {
         movieDetailsNetworkDataSource.fetchReviewMovies(movieId)
         return movieDetailsNetworkDataSource.reviewMovie
     }

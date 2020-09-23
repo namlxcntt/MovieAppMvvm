@@ -2,11 +2,9 @@ package com.example.mvvmarchitectureappmovie.ui.detailmovie
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.mvvmarchitectureappmovie.data.model.MovieDetails2
 import com.example.mvvmarchitectureappmovie.data.model.MoviesDetails
 import com.example.mvvmarchitectureappmovie.data.model.Review
 import com.example.mvvmarchitectureappmovie.data.repository.NetworkState
-import com.example.mvvmarchitectureappmovie.ui.detailmovie.MoviesDetailRepository
 import io.reactivex.disposables.CompositeDisposable
 
 class SingleMovieViewModel(private val movieRepository: MoviesDetailRepository, movieId: Int) :
@@ -19,7 +17,7 @@ class SingleMovieViewModel(private val movieRepository: MoviesDetailRepository, 
         movieRepository.getMovieDetailsNetworkState()
     }
     val movieReviews : LiveData<Review> by lazy {
-        movieRepository.fetchReviewMovies(compositeDisposable,movieId)
+        movieRepository.fetchReviewMovies(movieId)
     }
 
     override fun onCleared() {

@@ -7,6 +7,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mvvmarchitectureappmovie.R
 import com.example.mvvmarchitectureappmovie.data.api.TheMovieDBInteface
@@ -26,9 +28,12 @@ class DetailToprateFragment : Fragment(R.layout.fragment_detail_toprate), OnItem
     private lateinit var movieRepository: MoviePagedListTopratedRepository
     private lateinit var viewModel: DiscoverMovieViewModel
     private val apiService: TheMovieDBInteface = TheMovieDbClient.getClient()
+    private lateinit var navController: NavController
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
         movieAdapterToprated = PopularMoviePagedTopratedListAdapter(requireContext(),this)
         movieRepository = MoviePagedListTopratedRepository(apiService)
         val gridLayoutManager = GridLayoutManager(requireContext(), 3)
@@ -58,6 +63,9 @@ class DetailToprateFragment : Fragment(R.layout.fragment_detail_toprate), OnItem
     }
 
     override fun onClickListen(id: Int) {
+        val bundle =  Bundle()
+        bundle.putInt("key",id)
+        navController.navigate(R.id.action_detailToprateFragment_to_detailMovieFragment,bundle)
     }
 }
 
